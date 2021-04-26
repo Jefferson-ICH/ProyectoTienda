@@ -230,12 +230,20 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+          'text'        => 'User Type',
+          'url'         => '/admin/userstype',
+          'icon'        => 'far fa-user',
+      ],
+      [
+        'text'        => 'Social Network',
+        'url'         => '/admin/socialnetwork',
+        'icon'        => 'fas fa-link',
+    ],
+    [
+      'text'        => 'Category',
+      'url'         => 'admin/categories',
+      'icon'        => 'far fa-fw fa-file',
+  ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -300,7 +308,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

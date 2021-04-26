@@ -244,6 +244,11 @@ return [
       'url'         => 'admin/categories',
       'icon'        => 'far fa-fw fa-file',
   ],
+  [
+    'text'        => 'Estatus',
+    'url'         => 'estados',
+    'icon'        => 'far fa-fw fa-file',
+],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -261,8 +266,8 @@ return [
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Estado',
-                    'url'  => 'estados',
+                    'text' => 'E',
+                    'url'  => '#',
                 ],
                 [
                     'text' => 'level_one',

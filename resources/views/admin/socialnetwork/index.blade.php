@@ -16,111 +16,46 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Social network list</h3>
-                </div>
+              <div class="card-header">
+                <h3 class="card-title">Social network list</h3>
+              </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <table id="socialnetworks" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                            Explorer 4.0
-                            </td>
-                            <td>Win 95+</td>
-                            <td> 4</td>
-                            <td>X</td>
-                        </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                            Explorer 5.0
-                            </td>
-                            <td>Win 95+</td>
-                            <td>5</td>
-                            <td>C</td>
-                        </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                            Explorer 5.5
-                            </td>
-                            <td>Win 95+</td>
-                            <td>5.5</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                            Explorer 6
-                            </td>
-                            <td>Win 98+</td>
-                            <td>6</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet Explorer 7</td>
-                            <td>Win XP SP2+</td>
-                            <td>7</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>AOL browser (AOL desktop)</td>
-                            <td>Win XP</td>
-                            <td>6</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Gecko</td>
-                            <td>Firefox 1.0</td>
-                            <td>Win 98+ / OSX.2+</td>
-                            <td>1.7</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Gecko</td>
-                            <td>Firefox 1.5</td>
-                            <td>Win 98+ / OSX.2+</td>
-                            <td>1.8</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Gecko</td>
-                            <td>Firefox 2.0</td>
-                            <td>Win 98+ / OSX.2+</td>
-                            <td>1.8</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Gecko</td>
-                            <td>Firefox 3.0</td>
-                            <td>Win 2k+ / OSX.3+</td>
-                            <td>1.9</td>
-                            <td>A</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
-                        </tr>
-                    </tfoot>
-                </table>
+              <table id="socialnetworks" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Options</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  @foreach ($socialnetworks as $socialnetwork)
+                      <tr>
+                        <td>{{$socialnetwork->id}}</td>
+                        <td>{{$socialnetwork->name}}</td>
+                        <td>
+                          <button class="btn btn-warning" data-toggle="modal" data-target="#modal-update-socialnetwork-{{$socialnetwork->id}}">Editar</button>
+                          <form method="POST" action="{{ route('admin.socialnetwork.delete', $socialnetwork->id)}}">
+                            {{ csrf_field()}}
+                            @method('DELETE')
+                            <button class="btn btn-danger">Eliminar</button>
+                          </form>
+                        </td>
+                      </tr>
+
+                      </-- Include update socialnetwork---/>
+                      @include('admin.socialnetwork.modal_update_socialnetwork')
+                    @endforeach
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Options</th>
+                    </tr>
+                  </tfoot>
+              </table>
             </div>
             <!-- /.card-body -->
             </div>
@@ -135,18 +70,24 @@
 <div class="modal fade" id="modal-create-social-network">
     <div class="modal-dialog">
         <div class="modal-content bg-default">
+          <form action="{{ route('admin.socialnetwork.store')}}" method="POST">
+            {{ csrf_field() }}
             <div class="modal-header">
-                <h4 class="modal-title">Create Social network</h4>
+                <h4 class="modal-title">Create social network</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
                 </div>
             <div class="modal-body">
-                <p>Proximamente, Formulario....</p>
+              <div class="form-group">
+                <label for="socialnetwork">Social network</label>
+                <input id="socialnetwork" class="form-control" type="text" name="socialnetwork">
+              </div>
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-outline-light">Save changes</button>
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-outline-primary">Save</button>
             </div>
+          </form>
         </div>
       <!-- /.modal-content -->
     </div>

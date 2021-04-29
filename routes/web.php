@@ -58,9 +58,17 @@ Route::get('/admin/categoriesProducts/{module}', 'Admin\CategoryProductControlle
 Route::post('/admin/categoryProduct/create', 'Admin\CategoryProductController@create');
 Route::get('/admin/categoryProduct/{id}/edit', 'Admin\CategoryProductController@getEdit')->name('admin.categoriesProducts.edit');
 Route::post('/admin/categoryProduct/{id}/edit', 'Admin\CategoryProductController@postEdit');
-Route::get('/admin/categoryProduct/{id}/delete', 'Admin\CategoryProductController@delete');
+Route::get('/admin/categoryProduct/{id}/delete', 'Admin\CategoryProductController@delete')->name('category_delete'); 
 
 //Products
 Route::get('/admin/productos','Admin\ProductController@index')->name('admin.productos.index');
-Route::get('/admin/producto/create', 'Admin\ProductController@create');
+Route::get('/admin/producto/create', 'Admin\ProductController@create')->name('admin.productos.create');
+Route::post('/admin/producto/create','Admin\ProductController@postcreate')->name('admin.productos.create');
+
+Route::get('/admin/producto/{id}/edit','Admin\ProductController@getEdit')->name('product_edit');
+Route::post('/admin/producto/{id}/edit','Admin\ProductController@postEdit')->name('product_edit');
+Route::get('/admin/producto/{id}/delete', 'Admin\ProductController@delete')->name('product_delete'); 
+
+Route::post('/admin/producto/{id}/gallery/create','Admin\ProductController@postProductGalleryCreate')->name('product_gallery_add');
+Route::get('/admin/producto/{id}/gallery/{gid}/delete','Admin\ProductController@getProductGalleryDelete')->name('product_gallery_delete');
 

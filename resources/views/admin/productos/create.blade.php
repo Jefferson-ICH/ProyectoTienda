@@ -28,7 +28,7 @@
                 </div>
             <!-- /.card-header -->
             <div class="card-body">
-            {!! Form::open(['url' => '/admin/producto/create'])!!}
+            {!! Form::open(['url' => '/admin/producto/create', 'files'=>true])!!}
             <div class="row">
             <div class="col-md-6">
 					<label for="name">Nombre del Producto:</label>
@@ -41,13 +41,13 @@
 				</div>
 
 				<div class="col-md-3">
-					<label for="name">Categoria:</label>
+					<label for="category">Categoria:</label>
 					<div class="input-group">
 						<div class="input-group-prepend">
     						<span class="input-group-text" id="basic-addon1"><i class="far fa-keyboard"></i>
     						</span>
 						 </div>
-                         {!! Form::select('category',['class'=>'custom-select'])!!}
+						 {!! Form::select('category', $cats,0,['class'=>'custom-select'])!!}
 					</div>
 				</div>
 				<div class="col-md-3">

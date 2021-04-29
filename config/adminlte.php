@@ -252,7 +252,7 @@ return [
 [
     'text'         => 'Categoria de Productos',
     'url'          =>  'admin/categoriesProducts/0',
-    'icon'           => 'fas fa-box',
+    'icon'           => 'fab fa-artstation',
 ],
 [
     'text'         => 'Productos',

@@ -53,3 +53,14 @@ Route::post('/admin/categories/store', 'Admin\CategoryController@store')->name('
 Route::post('/admin/categories/{categoryId}/update', 'Admin\CategoryController@update')->name('admin.categories.update');
 Route::delete('/admin/categories/{categoryId}/delete', 'Admin\CategoryController@delete')->name('admin.categories.delete');
 
+//CategoriesProduct
+Route::get('/admin/categoriesProducts/{module}', 'Admin\CategoryProductController@index')->name('admin.categoriesProducts.index');
+Route::post('/admin/categoryProduct/create', 'Admin\CategoryProductController@create');
+Route::get('/admin/categoryProduct/{id}/edit', 'Admin\CategoryProductController@getEdit')->name('admin.categoriesProducts.edit');
+Route::post('/admin/categoryProduct/{id}/edit', 'Admin\CategoryProductController@postEdit');
+Route::get('/admin/categoryProduct/{id}/delete', 'Admin\CategoryProductController@delete');
+
+//Products
+Route::get('/admin/productos','Admin\ProductController@index')->name('admin.productos.index');
+Route::get('/admin/producto/create', 'Admin\ProductController@create');
+

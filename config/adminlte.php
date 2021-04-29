@@ -249,6 +249,16 @@ return [
     'url'         => 'estados',
     'icon'        => 'far fa-fw fa-file',
 ],
+[
+    'text'         => 'Categoria de Productos',
+    'url'          =>  'admin/categoriesProducts/0',
+    'icon'           => 'fas fa-box',
+],
+[
+    'text'         => 'Productos',
+    'url'          =>  'admin/productos',
+    'icon'           => 'fas fa-box',
+],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
